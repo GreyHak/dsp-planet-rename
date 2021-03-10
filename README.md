@@ -2,7 +2,7 @@
 
 **DSP Planet Rename** is a mod for the Unity game Dyson Sphere Program developed by Youthcat Studio and published by Gamera Game.  The game is available on [here](https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/).
 
-With this mod you can rename planets.  Planets are renamed from the star map view by clicking on the planet name above the planet details on the right.
+With this mod you can rename planets.  Planets are renamed from the planet or starmap views by clicking on the planet name above the planet details on the right.
 
 If you like this mod, please click the thumbs up at the [top of the page](https://dsp.thunderstore.io/package/GreyHak/DSP_Planet_Rename/) (next to the Total rating).  That would be a nice thank you for me, and help other people to find a mod you enjoy.
 
