@@ -1,6 +1,6 @@
 {
     "name": "DSP_Planet_Rename",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "website_url": "https://github.com/GreyHak/dsp-planet-rename",
     "description": "Rename planets.",
     "dependencies": [

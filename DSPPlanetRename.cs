@@ -26,7 +26,7 @@ namespace DSPPlanetRename
     {
         public const string pluginGuid = "greyhak.dysonsphereprogram.planetrename";
         public const string pluginName = "DSP Planet Rename";
-        public const string pluginVersion = "1.0.1";
+        public const string pluginVersion = "1.0.2";
         new internal static ManualLogSource Logger;
         new internal static BepInEx.Configuration.ConfigFile Config;
         Harmony harmony;
@@ -65,11 +65,26 @@ namespace DSPPlanetRename
             return sb.ToString();
         }
 
-        [HarmonyPostfix, HarmonyPatch(typeof(PlanetGen), "CreatePlanet")]
-        public static void PlanetGen_CreatePlanet_Postfix(PlanetData __result, GalaxyData galaxy)
+        [HarmonyPostfix, HarmonyPatch(typeof(StarGen), "CreateStarPlanets")]
+        public static void StarGen_CreateStarPlanets_Postfix(GalaxyData galaxy, StarData star, GameDesc gameDesc)
+        {
+            foreach (PlanetData planet in star.planets)
+            {
+                InitializePlanetName(planet, galaxy);
+            }
+        }
+
+        public static void InitializePlanetName(PlanetData __result, GalaxyData galaxy)
         {
             if (DSPGame.IsMenuDemo)
+            {
                 return;
+            }
+
+            if (__result.name.Length == 0)
+            {
+                return;
+            }
 
             string customName = Config.Bind<string>("Planet Names", PlanetHash(__result.name, galaxy), __result.name, "[Cluster " + GetGalaxyName(galaxy) + "] Replacement planet name for " + __result.name).Value;
             if (customName != __result.name)
@@ -172,7 +187,8 @@ namespace DSPPlanetRename
                     return;
                 }
 
-                PlanetNamingData planetNamingData = nameDictionary[activePlanet.id];
+                PlanetNamingData planetNamingData;
+                nameDictionary.TryGetValue(activePlanet.id, out planetNamingData);
                 if (planetNamingData == null)
                 {
                     Logger.LogError("OnNameInputSubmit called without planet ID (" + activePlanet.id.ToString() + ") in nameDictionary.  This isn't expected, but has happened, and isn't handled properly.  If you see this error, please report it at https://github.com/GreyHak/dsp-planet-rename/issues.  Thank you.");
@@ -219,6 +235,25 @@ namespace DSPPlanetRename
                 }
 
                 UIRoot.instance.uiGame.planetDetail.OnPlanetDataSet();
+
+                if (UIRoot.instance.uiGame.planetGlobe != null &&
+                    UIRoot.instance.uiGame.planetGlobe.lastStarId == -1 &&
+                    UIRoot.instance.uiGame.planetGlobe.lastPlanetId > 0)
+                {
+                    PlanetData globePlanet = GameMain.data.galaxy.PlanetById(UIRoot.instance.uiGame.planetGlobe.lastPlanetId);
+                    if (globePlanet == null)
+                    {
+                        Logger.LogError("OnNameInputSubmit called while globePlanet is null.  This isn't expected, but has happened, and isn't handled properly.  If you see this error, please report it at https://github.com/GreyHak/dsp-planet-rename/issues.  Thank you.");
+                    }
+                    else
+                    {
+                        UIRoot.instance.uiGame.planetGlobe.planetNameText.text = globePlanet.name;
+                    }
+                }
+                else
+                {
+                    Logger.LogDebug("Skipping global planet name update.");  // This is expected when not around a planet.
+                }
 
                 if (UIRoot.instance.uiGame.starmap == null)
                 {

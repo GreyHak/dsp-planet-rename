@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5B422CE7-F11A-4686-A43E-B16FC4582A50}</ProjectGuid>
+    <ProjectGuid>{9B9010CA-358C-4600-ABA3-B512E7012028}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DSPPlanetRename</RootNamespace>
