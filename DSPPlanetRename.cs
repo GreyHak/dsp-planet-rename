@@ -43,9 +43,17 @@ namespace DSPPlanetRename
         {
             Logger = base.Logger;  // "C:\Program Files (x86)\Steam\steamapps\common\Dyson Sphere Program\BepInEx\LogOutput.log"
             Config = base.Config;
+            Config.SaveOnConfigSet = false;
 
             harmony = new Harmony(pluginGuid);
             harmony.PatchAll(typeof(DSPPlanetRename));
+        }
+
+        [HarmonyPostfix, HarmonyPatch(typeof(GameData), "Export")]
+        public static void GameData_Export_Postfix()
+        {
+            Logger.LogDebug("Saving planet names.");
+            Config.Save();
         }
 
         public static string GetGalaxyName(GalaxyData galaxy)

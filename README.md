@@ -31,6 +31,7 @@ The source code for this mod is available for download, review and forking on Gi
 ### v1.0.2
  - Added compatibility with Touhma GalacticScale mod v1.3.0[BETA].
  - Fixed the delayed update of the planet name in the globe planet view.
+ - Major speed optimization: planet names now only save to disk when the game saves (still not to the game file).
 ### v1.0.1
  - Fixed a problem when using the planet view.
  - Fixed a problem creating new galaxies with this mod enabled.
