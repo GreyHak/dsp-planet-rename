@@ -28,6 +28,8 @@ This mod can also be installed using ebkr's [r2modman](https://dsp.thunderstore.
 The source code for this mod is available for download, review and forking on GitHub [here](https://github.com/GreyHak/dsp-planet-rename) under the BSD 3 clause license.
 
 ## Change Log
+### v1.0.3
+ - Increase the width of the planet name editing box.
 ### v1.0.2
  - Added compatibility with Touhma GalacticScale mod v1.3.0[BETA].
  - Fixed the delayed update of the planet name in the globe planet view.

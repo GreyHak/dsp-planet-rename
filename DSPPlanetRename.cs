@@ -26,7 +26,7 @@ namespace DSPPlanetRename
     {
         public const string pluginGuid = "greyhak.dysonsphereprogram.planetrename";
         public const string pluginName = "DSP Planet Rename";
-        public const string pluginVersion = "1.0.2";
+        public const string pluginVersion = "1.0.3";
         new internal static ManualLogSource Logger;
         new internal static BepInEx.Configuration.ConfigFile Config;
         Harmony harmony;
@@ -134,8 +134,9 @@ namespace DSPPlanetRename
                 nameInput = nameInputObject.GetComponent<InputField>();
 
                 nameInputObject.transform.SetParent(__instance.transform.parent);
-                nameInputObject.transform.localPosition = new Vector3(-145f, -38f, 0f);  // Moving the shorter one
+                nameInputObject.transform.localPosition = new Vector3(-120f, -38f, 0f);  // Moving the shorter one
                 nameInputObject.transform.localScale = new Vector3(1.06f, 1.3f, 1f);
+                nameInput.GetComponent<RectTransform>().sizeDelta = new Vector2(210, 30);
                 nameInput.image.color = new Color(0, 0, 0, 0);
                 nameInput.textComponent.color = new Color(1, 1, 1, 1);
 
