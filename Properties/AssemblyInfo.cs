@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("DSP Planet Rename")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyConfiguration("Rename planets and moons in Dyson Sphere Program")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("DSP Planet Rename")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]

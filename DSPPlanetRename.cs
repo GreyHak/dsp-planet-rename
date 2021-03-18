@@ -42,7 +42,7 @@ namespace DSPPlanetRename
         public void Awake()
         {
             Logger = base.Logger;  // "C:\Program Files (x86)\Steam\steamapps\common\Dyson Sphere Program\BepInEx\LogOutput.log"
-            Config = base.Config;
+            Config = base.Config;  // "C:\Program Files (x86)\Steam\steamapps\common\Dyson Sphere Program\BepInEx\config\"
             Config.SaveOnConfigSet = false;
 
             harmony = new Harmony(pluginGuid);

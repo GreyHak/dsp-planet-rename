@@ -2,7 +2,7 @@
     "name": "DSP_Planet_Rename",
     "version_number": "1.0.3",
     "website_url": "https://github.com/GreyHak/dsp-planet-rename",
-    "description": "Rename planets.",
+    "description": "Rename planets and moons.",
     "dependencies": [
         "xiaoye97-BepInEx-5.4.5"
     ]
