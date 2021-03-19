@@ -1,3 +1,5 @@
+# THIS MOD IS NOW DEPRECATED.  The functionality has now been incorporated into the vanilla game.
+
 # Planet Rename for Dyson Sphere Program
 
 **DSP Planet Rename** is a mod for the Unity game Dyson Sphere Program developed by Youthcat Studio and published by Gamera Game.  The game is available on [here](https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/).
